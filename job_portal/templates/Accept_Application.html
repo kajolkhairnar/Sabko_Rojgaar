@@ -1,0 +1,43 @@
+{% load static %}
+{% block body %}
+{% include 'Employeer_navigation.html' %}
+
+    <marquee style="background-color:red;font-family:Cursive;color:darkcolor;font-weight:bold">
+        Send Message
+    </marquee>
+<hr>
+
+<div class="container shadow-lg py-2 mt-4 " style="font-family:cursive;background-color:#B983FF">
+    <form method="post">
+        {% csrf_token %}
+        <label>From : </label>
+        <input type="tel" name="telephone" >
+        <br>
+        <br>
+        <br>
+        <label>Password :</label>
+        <input type="password" name="password" placeholder="Enter your password">
+        <br>
+        <br>
+        <label>Status :</label>
+        <textarea name="Accept" value="Accept" >Application Accepted..</textarea>
+        <br>
+        <br>
+        <label>Send To : </label>
+        <input type="tel" name="mobile" value="{{employee.mobile}}"><br><br><br>
+        <label>Message : </label>
+        <textarea style="width:500px;height:100px;font-family:cursive;color:black;"class="" rows="10" col="50" type="text" name="message" >Hey Applicant!!Thank you sending your application. Congratulations!! , your application has been selected.Please take note of it. Will be back to you for further details .</textarea>
+        <br>
+        <br>
+        <br>
+        <a href="{% url 'submit' %}" type="submit" class="btn btn-primary"><i class="fa fa-arrow-circle-right fa-lg"></i> Send Message</a>
+
+    </form>
+
+
+
+
+</div>
+
+
+{% endblock %}

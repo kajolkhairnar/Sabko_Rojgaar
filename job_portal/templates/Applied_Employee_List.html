@@ -1,0 +1,92 @@
+{% load static %}
+{% block body %}
+{% include 'Employeer_navigation.html' %}
+
+    <marquee style="background-color:red;font-family:Cursive;color:darkcolor;font-weight:bold;font-size:30px">
+        Applied Employee List
+    </marquee>
+<hr>
+<style>
+    tr{text-align:center;}
+</style>
+<div class="container table table-hover" style="font-family:cursive">
+
+<table id="example" class="table table-hover">
+   <thead>
+       <tr style="background-color:#D57E7E;font-family:cursive">
+           <th>Sr.No</th>
+           <th>Full Name</th>
+           <th>Email ID</th>
+           <th>Contact Number</th>
+           <th>Job Title</th>
+           <th>Workplace Name</th>
+           <th>Location</th>
+           <th>Apply Date</th>
+           <th>Resume/Document</th>
+           <th>Accept/Reject Application</th>
+           <th>Remark</th>
+           
+
+       </tr>
+   </thead>
+    <tbody>
+    {% for i in data %}
+    {% ifequal request.user.id i.job.Employeer.user.id %}
+
+      <tr style="background-color:#FFE1AF;font-family:cursive">
+        <td>
+            {{forloop.counter}}
+        </td>
+        <td>
+            {{i.employee.user.first_name }} {{i.employee.user.last_name}}
+        </td>
+        <td>
+            {{i.employee.user.username }}
+        </td>
+        <td>
+            {{i.employee.mobile }}
+        </td>
+        <td>
+            {{i.job.Title }}
+        </td>
+        <td>
+            {{i.job.workplace }}
+        </td>
+        <td>
+            {{i.job.workarea }}
+        </td>
+        <td>
+            {{i.applied_date }}
+        </td>
+        <td>
+            <a href="{{i.document.url}}">Download here</a>
+        </td>
+         <td>
+            
+            <a href="{% url 'Accept_Application' i.id %}" name="Accept" class="btn btn-success btn-sm" onclick="return confirm('Make sure before accepting...')"><i class="fa fa-check"></i></a> |
+            <a href="{% url 'Reject_Application' i.id %}" name="Reject" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure to reject application ?')"><i class="fa fa-ban"></i></a>
+            {% ifequal status "Accept"  %}
+            <td class="current">
+               Selected
+            </td>
+            {% endifequal %}
+         </td>
+         
+         
+
+         
+      </tr>
+      
+      {% endifequal %}
+    {% endfor %}
+    
+    </tbody>
+    <tr>
+        <td>
+
+        </td>
+    </tr>
+</table>
+
+</div>
+{% endblock %}

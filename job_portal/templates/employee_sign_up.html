@@ -1,0 +1,111 @@
+{% load static %}
+{% block body %}
+{% include 'navigation.html' %}
+ <script>
+     function checkpwd()
+     {
+     if(document.signup.pwd.value!=document.signup.cpwd.value)
+     {
+         alert('Password and Confirm Password field does not match');
+         document.signup.cpwd.focus();
+         return false;
+     }
+     return true;
+     }
+ </script>
+     <marquee style="background-color:red;font-family:Sofia,sans serif;color:black;font-weight:bold">
+        Employee Registration
+     </marquee>
+       <hr>
+       <form class="container mt-5" onsubmit="return checkpwd();" method="post" name="signup" enctype="multipart/form-data" style="background-color:#CDF2CA;border-radius:20px">
+           {% csrf_token %}
+           <div class="form-row">
+               <div class="form-group col-md-6" style="padding-top:16px">
+                   <label style="font-weight:bold">First Name :</label>
+                   <input type="text" required class="form-control" name="fname" placeholder="First Name">
+               </div>
+               <div class="form-group col-md-6" style="padding-top:0px">
+                   <label style="font-weight:bold">Last Name :</label>
+                   <input type="text" required class="form-control" name="lname" placeholder="Last Name">
+               </div>
+
+           </div>
+
+           <div class="form-row">
+               <div class="form-group col-md-12" style="padding-top:16px">
+                   <label style="font-weight:bold">Contact Number :</label>
+                   <input type="text"  class="form-control" name="contact" placeholder="Enter Contact Number">
+               </div>
+
+
+           </div>
+
+           <div class="form-row">
+               <div class="form-group col-md-12" style="padding-top:16px">
+                   <label style="font-weight:bold">Email ID</label>
+                   <input type="email" required class="form-control" name="email" placeholder="john@gmail.com">
+               </div>
+
+
+           </div>
+           <div class="form-row">
+               <div class="form-group col-md-6" style="padding-top:22px">
+                   <label style="font-weight:bold">Password :</label>
+                   <input type="password" required class="form-control" name="pwd" placeholder="john@123">
+               </div>
+               <div class="form-group col-md-6" >
+                   <label style="font-weight:bold">Confirm Password :</label>
+                   <input type="password" required class="form-control" name="cpwd" placeholder="john@123">
+               </div>
+
+
+           </div>
+            <div class="form-row" >
+               <div class="form-group col-md-12" style="padding-top:19px" >
+                   <label style="font-weight:bold">Gender :</label>
+                   <br><br>
+                   <div class="custom-control custom-radio custom-control-inline">
+                       <input type="radio" id="customcontrolinline1" name="gender" class="custom-control-input" value="Male">
+                       <label class="custom-control-label" for="customcontrolinline1" style="font-weight:bold">MALE</label>
+                   </div>
+                   <br><br>
+                   <div class="custom-control custom-radio custom-control-inline" >
+                       <input type="radio" id="customcontrolinline2" name="gender" class="custom-control-input" value="Female">
+                       <label class="custom-control-label" for="customcontrolinline2" style="font-weight:bold">FEMALE</label>
+                   </div>
+                   <br><br>
+                   <div class="custom-control custom-radio custom-control-inline">
+                       <input type="radio" id="customcontrolinline3" name="gender" class="custom-control-input" value="Other">
+                       <label class="custom-control-label" for="customcontrolinline3" style="font-weight:bold">OTHER</label>
+                   </div>
+
+               </div>
+
+           </div>
+           <div class="form-row">
+               <div class="form-group col-md-12" style="padding-top:14px">
+                   <label style="font-weight:bold">Upload Profile Photo (Optional) :</label><br>
+                   <input type="file" class="form-control" name="photo" style="border-radius:20px;background-color:#F78812;width:300px;height:50px">
+               </div>
+
+
+           </div>
+           <br>
+           <input type="submit" value="submit" class="btn btn-primary" style="background-color:#172774;color:white;width:150px;height:50px;border-radius:20px"><br>
+       </form>
+{% include 'footer.html' %}
+{% ifequal error "no" %}
+<script>
+    alert("Signup Successful ");
+    window.location=('{% url 'Employee_login' %}')
+</script>
+{% endifequal %}
+
+{% ifequal error "yes" %}
+<script>
+    alert("Something is wrong.Try  again.... ");
+</script>
+{% endifequal %}
+
+
+{% endblock %}

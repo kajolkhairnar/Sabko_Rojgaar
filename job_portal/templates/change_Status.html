@@ -1,0 +1,35 @@
+{% load static %}
+{% block body %}
+{% include 'admin_navigation.html' %}
+
+    <marquee style="background-color:red;font-family:Cursive;color:darkcolor;font-weight:bold">
+        Change Employeer Status
+    </marquee>
+<hr>
+<form class="container mt-5" method="post">
+           {% csrf_token %}
+           <label><b>Employeer Name</b></label>
+           <input type="text" class="form-control" name="name" value="{{Emp.user.first_name}} {{Emp.user.last_name}}">
+
+           <label><b>Status</b></label>
+           <select  class="form-control" name="status" >
+                    <option value="Accept" >Accept</option>
+                    <option value="Reject" >Reject</option>
+           </select>
+           <input type="submit" class="btn btn-primary" style="align:center;margin-top:2%;color:black;background:red">
+</form>
+
+{% ifequal error "no" %}
+<script>
+       alert(" Status changed Successfully ! ");
+       window.location=('{% url 'pending_request' %}')
+</script>
+{% endifequal %}
+
+{% ifequal error "yes" %}
+<script>
+      alert("Something went wrong.Try again.... ");
+</script>
+{% endifequal %}
+
+{% endblock %}

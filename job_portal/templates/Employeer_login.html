@@ -1,0 +1,40 @@
+{% load static %}
+{% block body %}
+{% include 'navigation.html' %}
+
+    <marquee style="background-color:red;font-family:Sofia,sans serif;color:darkcolor;font-weight:bold">
+        Employeer Login
+    </marquee>
+       <hr>
+       <form class="container mt-5" method="post">
+           {% csrf_token %}
+           <label><b>E-mail</b></label>
+           <input type="email" class="form-control" name="email" placeholder="john@gmail.com">
+
+           <label><b>Password</b></label>
+           <input type="password" class="form-control" name="pwd" placeholder="john@123">
+
+           <input type="submit" class="btn btn-primary" style="align:center;margin-top:2%;color:black;background:red">
+            <a href="{% url 'Employeer_Signup' %}" class="btn btn-primary" style="align:center;margin-top:2%;color:black;background:red">CREATE AN ACCOUNT</a>
+       </form>
+{% include 'footer.html' %}
+
+{% ifequal error "no" %}
+<script>
+       alert("Login Successful ");
+       window.location=('{% url 'Employeer_Profile' %}')
+</script>
+{% endifequal %}
+
+{% ifequal error "yes" %}
+<script>
+      alert("Invalid Login Credentials.Try again.... ");
+</script>
+{% endifequal %}
+
+{% ifequal error "not" %}
+<script>
+      alert("Status is being Verified...");
+</script>
+{% endifequal %}
+{% endblock %}

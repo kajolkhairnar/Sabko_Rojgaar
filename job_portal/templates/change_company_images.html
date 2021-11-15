@@ -1,0 +1,79 @@
+{% load static %}
+
+{% block body %}
+
+{% include 'Employeer_Navigation.html' %}
+
+    <marquee style="background-color:red;font-family:Monotype;color:darkcolor;font-weight:bold">
+        Change Company Images
+    </marquee>
+
+       <hr>
+       <form class="container mt-5"  method="post" name="signup" enctype="multipart/form-data" style="background-color:#CDF2CA;border-radius:20px">
+           {% csrf_token %}
+           <div class="form-row">
+               <div class="form-group col-md-12" style="padding-top:16px">
+                   <label style="font-weight:bold">Job Title</label>
+                   <input type="text" required class="form-control" readonly name="title" value="{{job.Title}}" >
+               </div>
+
+
+           </div>
+
+
+
+            <div class="form-row">
+               <div class="form-group col-md-12" style="padding-top:22px">
+                   <label style="font-weight:bold">Workplace Images :</label>
+                   <img src="{{job.workplace_images.url}}" width="100px" height="100px">
+               </div>
+
+
+           </div>
+
+           <div class="form-row">
+               <div class="form-group col-md-12" style="padding-top:16px">
+                   <label style="font-weight:bold">Change Workplace Images : </label>
+                   <input type="file" class="form-control" name="images" required>
+               </div>
+
+
+           </div>
+           <div class="form-row">
+               <div class="form-group col-md-12" style="padding-top:16px">
+                   <label style="font-weight:bold">Skills</label>
+                   <input type="text" class="form-control" name="skills" placeholder="Skills required" value="{{job.Skills}}">
+               </div>
+
+
+           </div>
+           <div class="form-row">
+               <div class="form-group col-md-12" style="padding-top:16px">
+                   <label style="font-weight:bold">Job Description : </label>
+                   <textarea class="form-control" name="description">{{job.Job_description}}</textarea>
+               </div>
+
+
+           </div>
+
+            <br>
+           <input type="submit" value="submit" class="btn btn-primary" style="background-color:#172774;color:white;width:150px;height:50px;border-radius:20px"><br>
+       </form>
+{% include 'footer.html' %}
+
+
+{% ifequal error "no" %}
+<script>
+    alert("Workplace images have been updated ");
+    window.location=('{% url 'change_company_images' job.id %}')
+</script>
+{% endifequal %}
+
+{% ifequal error "yes" %}
+<script>
+    alert("Something is wrong.Try  again.... ");
+</script>
+{% endifequal %}
+
+
+{% endblock %}

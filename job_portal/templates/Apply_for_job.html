@@ -1,0 +1,41 @@
+{% load static %}
+{% block body %}
+{% include 'Employee_navigation.html' %}
+
+    <marquee style="background-color:red;font-family:Cursive;color:darkcolor;font-weight:bold">
+        Apply for Job
+    </marquee>
+<hr>
+
+<div class="container shadow-lg py-2 mt-4" style="font-family:cursive">
+          <form method="post" enctype="multipart/form-data">
+              {% csrf_token %}
+              <div class="form-row">
+                 <label class="font-weight-bold">Upload Resume/ Upload Experience Certificate</label>
+                  <input required type="file" class="form-control" name="resume">
+              </div>
+              <input type="submit" value="Submit" class="btn btn-danger mt-4">
+          </form>
+
+</div>
+
+{% ifequal error "close" %}
+<script>
+    alert("Applications are closed");
+    window.location=('{% url 'employee_job_list' %}')
+</script>
+{% endifequal %}
+
+{% ifequal error "notopened" %}
+<script>
+    alert("Applications are not yet started...");
+    window.location=('{% url 'employee_job_list' %}')
+</script>
+{% endifequal %}
+{% ifequal error "done" %}
+<script>
+    alert("Application submitted successfully...");
+    window.location=('{% url 'employee_job_list' %}')
+</script>
+{% endifequal %}
+{% endblock %}
