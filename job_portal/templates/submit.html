@@ -1,0 +1,11 @@
+
+{% load static %}
+{% block body %}
+{% ifequal status "Accept" %}
+<script>
+       alert(" Message send Successfully ! ");
+       window.location=('{% url 'Applied_Employee_List' %}')
+       
+</script>
+{% endifequal %}
+{% endblock %}

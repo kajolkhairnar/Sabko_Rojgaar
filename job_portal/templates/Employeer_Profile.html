@@ -1,0 +1,157 @@
+{% load static %}
+{% block body %}
+{% include 'Employeer_Navigation.html' %}
+
+    <marquee style="background-color:red;font-family:Monotype;color:darkcolor;font-weight:bold">
+        Employeer Profile
+    </marquee>
+    <style>
+        .img1
+        {
+           width:auto;
+           height:auto;
+           padding-left:50px;
+           border-radius:300px;
+           align
+
+        }
+    </style>
+       <hr style="width:100%" size="3" color="black">
+      <div class="container">
+          <div class="row">
+              <div class="col-sm-6">
+
+
+       <form class="mt-5" method="post" name="signup" enctype="multipart/form-data" style="background-color:#89B5AF;border-radius:20px">
+           {% csrf_token %}
+           <div class="form-row">
+               <div class="form-group col-md-6" style="padding-top:16px">
+                   <label style="font-weight:bold">First Name :</label>
+                   <input type="text" required class="form-control" name="fname" value="{{employeer.user.first_name}}">
+               </div>
+               <div class="form-group col-md-6" style="padding-top:0px">
+                   <label style="font-weight:bold">Last Name :</label>
+                   <input type="text" required class="form-control" name="lname" value="{{employeer.user.last_name}}">
+               </div>
+
+           </div>
+
+           <div class="form-row">
+               <div class="form-group col-md-12" style="padding-top:16px">
+                   <label style="font-weight:bold">Contact Number :</label>
+                   <input type="text" required class="form-control" name="contact" value="{{employeer.mobile}}">
+               </div>
+
+
+           </div>
+
+            <div class="form-row">
+               <div class="form-group col-md-6" style="padding-top:22px">
+                   <label style="font-weight:bold">Workplace Name :</label>
+                   <input type="text" required class="form-control" name="workplace" value="{{employeer.workplace}}">
+               </div>
+               <div class="form-group col-md-6">
+                   <label style="font-weight:bold">Workplace Location :</label>
+                   <input type="text" required class="form-control" name="workplace_area" value="{{employeer.workplace_area}}">
+               </div>
+
+           </div>
+           <div class="form-row">
+               <div class="form-group col-md-12" style="padding-top:16px">
+                   <label style="font-weight:bold">Email ID</label>
+                   <input type="email" required class="form-control" name="email" readonly value="{{employeer.user.username}}">
+               </div>
+
+
+           </div>
+
+            <div class="form-row" >
+               <div class="form-group col-md-12" style="padding-top:19px" >
+                   <label style="font-weight:bold">Gender :</label>
+                   {% if employeer.gender == "Male"  %}
+                   <br><br>
+                   <div class="custom-control custom-radio custom-control-inline">
+                       <input type="radio" id="customcontrolinline1" name="gender" class="custom-control-input" value="Male" checked>
+                       <label class="custom-control-label" for="customcontrolinline1" style="font-weight:bold">MALE</label>
+                   </div>
+                   <br><br>
+                   <div class="custom-control custom-radio custom-control-inline" >
+                       <input type="radio" id="customcontrolinline2" name="gender" class="custom-control-input" value="Female">
+                       <label class="custom-control-label" for="customcontrolinline2" style="font-weight:bold">FEMALE</label>
+                   </div>
+                   <br><br>
+                   <div class="custom-control custom-radio custom-control-inline">
+                       <input type="radio" id="customcontrolinline3" name="gender" class="custom-control-input" value="Other">
+                       <label class="custom-control-label" for="customcontrolinline3" style="font-weight:bold">OTHER</label>
+                   </div>
+                   {% elif employeer.gender == "Female" %}
+                   <br><br>
+                   <div class="custom-control custom-radio custom-control-inline">
+                       <input type="radio" id="customcontrolinline1" name="gender" class="custom-control-input" value="Male">
+                       <label class="custom-control-label" for="customcontrolinline1" style="font-weight:bold">MALE</label>
+                   </div>
+                   <br><br>
+                   <div class="custom-control custom-radio custom-control-inline" >
+                       <input type="radio" id="customcontrolinline2" name="gender" class="custom-control-input" value="Female" checked>
+                       <label class="custom-control-label" for="customcontrolinline2" style="font-weight:bold">FEMALE</label>
+                   </div>
+                   <br><br>
+                   <div class="custom-control custom-radio custom-control-inline">
+                       <input type="radio" id="customcontrolinline3" name="gender" class="custom-control-input" value="Other">
+                       <label class="custom-control-label" for="customcontrolinline3" style="font-weight:bold">OTHER</label>
+                   </div>
+                   {% else %}
+                   <br><br>
+                   <div class="custom-control custom-radio custom-control-inline">
+                       <input type="radio" id="customcontrolinline1" name="gender" class="custom-control-input" value="Male">
+                       <label class="custom-control-label" for="customcontrolinline1" style="font-weight:bold">MALE</label>
+                   </div>
+                   <br><br>
+                   <div class="custom-control custom-radio custom-control-inline" >
+                       <input type="radio" id="customcontrolinline2" name="gender" class="custom-control-input" value="Female">
+                       <label class="custom-control-label" for="customcontrolinline2" style="font-weight:bold">FEMALE</label>
+                   </div>
+                   <br><br>
+                   <div class="custom-control custom-radio custom-control-inline">
+                       <input type="radio" id="customcontrolinline3" name="gender" class="custom-control-input" value="Other" checked>
+                       <label class="custom-control-label" for="customcontrolinline3" style="font-weight:bold">OTHER</label>
+                   </div>
+                   {% endif %}
+
+               </div>
+
+           </div>
+           <div class="form-row">
+               <div class="form-group col-md-12" style="padding-top:14px">
+                   <label style="font-weight:bold">Upload Profile Photo (Optional) :</label><br>
+                   <input type="file" class="form-control" name="photo" style="border-radius:20px;background-color:#F78812;width:300px;height:50px">
+               </div>
+
+
+           </div>
+           <br>
+           <input type="submit" value="submit" class="btn btn-primary" style="background-color:#172774;color:white;width:150px;height:50px;border-radius:20px"><br>
+       </form>
+      </div>
+              <div class="col-sm-6 mt-5 img1">
+                    <img src="{{employeer.image.url}}" class="img-fluid rounded-circle" alt="Responsive image">
+              </div>
+          </div>
+      </div>
+{% include 'footer.html' %}
+{% ifequal error "no" %}
+<script>
+    alert("Profile updated Successfully.... ");
+    window.location=('{% url 'Employeer_Profile' %}')
+</script>
+{% endifequal %}
+
+{% ifequal error "yes" %}
+<script>
+    alert("Something is wrong.Try  again.... ");
+</script>
+{% endifequal %}
+
+
+
+{% endblock %}

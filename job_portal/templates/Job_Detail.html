@@ -1,0 +1,50 @@
+{% load static %}
+{% block body %}
+{% include 'Employee_navigation.html' %}
+
+    <marquee style="background-color:red;font-family:Cursive;color:darkcolor;font-weight:bold">
+        Job Details
+    </marquee>
+<hr>
+
+<div class="container shadow-lg py-2 mt-4" style="font-family:cursive">
+    <div class="row">
+        <div class="col-md-4">
+            <img src="{{job.workplace_images.url}}" height="300px" width="300px">
+
+        </div>
+        <div class="col-md-6">
+            <h2>{{job.Title}}</h2>
+            <p>{{job.employeer.workplace}} <em><a href="{% url 'employee_job_list' %}">View All Jobs</a></em></p>
+            <a href="#"><i class="fa fa-map-marker mr-3"></i>{{job.location}}</a>
+            <a href="#"><i class="fa fa-calendar mr-3"></i>{{job.date_of_creation}}</a>
+            <br>
+            <strong><i class="fa fa-money mr-3 mt-3"></i><i class="fa fa-inr mr-3 mt-3"></i>{{job.salary}}</strong>
+            <div class="mt-4">
+                <a href="{% url 'Apply_for_job' job.id %}" type="submit" class="btn btn-danger" style="width:200px;height:50px;background-color:red;color:black;font-family:cursive;">Apply Now</a>
+
+            </div>
+
+        </div>
+    </div>
+    <div class="mt-5">
+        <h4>Job Description</h4>
+        <p>{{job.Job_description}}</p>
+
+        <h4>Required Skills</h4>
+        <p>{{job.Skills}}</p>
+
+        <h4>Experience Required</h4>
+        <p>{{job.experience}} Yrs</p>
+
+        <h4>Start Date for Applying</h4>
+        <p>{{job.start_date}}</p>
+
+        <h4>End Date for Applying</h4>
+        <p>{{job.end_date}}</p>
+
+
+    </div>
+
+</div>
+{% endblock %}

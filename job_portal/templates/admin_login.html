@@ -1,0 +1,34 @@
+{% load static %}
+{% block body %}
+{% include 'navigation.html' %}
+
+    <marquee style="background-color:red;font-family:Sofia,sans serif;color:darkcolor;font-weight:bold">
+        admin login
+    </marquee>
+       <hr>
+       <form class="container mt-5" method="post">
+           {% csrf_token %}
+           <label><b>Username</b></label>
+           <input type="text" class="form-control" name="uname" placeholder="Enter Username">
+
+           <label><b>Password</b></label>
+           <input type="password" class="form-control" name="pwd" placeholder="john@123">
+
+           <input type="submit" class="btn btn-primary" style="align:center;margin-top:2%;color:black;background:red">
+       </form>
+
+{% ifequal error "no" %}
+<script>
+       alert("Login Successful ");
+       window.location=('{% url 'admin_Profile' %}')
+</script>
+{% endifequal %}
+
+{% ifequal error "yes" %}
+<script>
+      alert("Invalid Login Credentials.Try again.... ");
+</script>
+{% endifequal %}
+
+
+{% endblock %}

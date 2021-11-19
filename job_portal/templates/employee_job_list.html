@@ -1,0 +1,66 @@
+{% load static %}
+{% block body %}
+{% include 'Employee_navigation.html' %}
+
+    <marquee style="background-color:red;font-family:Cursive;color:darkcolor;font-weight:bold">
+        Employee Job List
+    </marquee>
+<hr>
+<style>
+    tr{text-align:center;}
+</style>
+<div class="container table table-hover" style="font-family:cursive">
+
+<table id="example" class="table table-hover">
+   <thead>
+       <tr style="background-color:#D57E7E;font-family:cursive">
+           <th>Sr.No</th>
+           <th>Company Name</th>
+           <th>Job Title</th>
+           <th>Start Date</th>
+           <th>End Date</th>
+           <th>Location</th>
+           <th>Action</th>
+
+       </tr>
+   </thead>
+    <tbody>
+    {% for i in job %}
+      <tr style="background-color:#FFE1AF;font-family:cursive">
+        <td>
+            {{forloop.counter}}
+        </td>
+        <td>
+            {{i.employeer.workplace }}
+        </td>
+        <td>
+            {{i.Title }}
+        </td>
+        <td>
+            {{i.start_date }}
+        </td>
+        <td>
+            {{i.end_date }}
+        </td>
+        <td>
+            {{i.location }}
+        </td>
+        {% if i.id in li %}
+         <td>Applied</td>
+         {% else %}
+         <td>
+            <a href="{% url 'Job_Detail' i.id %}" class="btn btn-success btn-sm" >Apply</a>
+             {% endif %}
+         </td>
+      </tr>
+    {% endfor %}
+    </tbody>
+    <tr>
+        <td>
+
+        </td>
+    </tr>
+</table>
+
+</div>
+{% endblock %}

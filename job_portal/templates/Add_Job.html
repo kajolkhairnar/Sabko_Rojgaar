@@ -1,0 +1,99 @@
+{% load static %}
+
+{% block body %}
+
+{% include 'Employeer_Navigation.html' %}
+
+    <marquee style="background-color:red;font-family:Monotype;color:darkcolor;font-weight:bold">
+        Add Job Details
+    </marquee>
+
+       <hr>
+       <form class="container mt-5"  method="post" name="signup" enctype="multipart/form-data" style="background-color:#CDF2CA;border-radius:20px">
+           {% csrf_token %}
+           <div class="form-row">
+               <div class="form-group col-md-12" style="padding-top:16px">
+                   <label style="font-weight:bold">Job Title</label>
+                   <input type="text" required class="form-control" name="title" placeholder="Enter Job Title" >
+               </div>
+
+
+           </div>
+
+           <div class="form-row">
+               <div class="form-group col-md-6" style="padding-top:22px">
+                   <label style="font-weight:bold">Start Date :</label><br>
+                   <input type="date"  class="form-control" name="sdate" required>
+               </div>
+               <div class="form-group col-md-6" >
+                   <label style="font-weight:bold">End Date :</label><br>
+                   <input type="date"  class="form-control" name="edate" required>
+               </div>
+
+           </div>
+
+            <div class="form-row">
+               <div class="form-group col-md-6" style="padding-top:22px">
+                   <label style="font-weight:bold">Salary (Per month) :</label>
+                   <input type="text" required class="form-control" name="salary">
+               </div>
+               <div class="form-group col-md-6">
+                   <label style="font-weight:bold">Workplace Images :</label>
+                   <input type="file" class="form-control" name="workplace_images">
+               </div>
+
+           </div>
+           <div class="form-row">
+               <div class="form-group col-md-12" style="padding-top:16px">
+                   <label style="font-weight:bold">Experience Required (In Years) : </label>
+                   <input type="text" class="form-control" name="experience" placeholder="Enter the required experience">
+               </div>
+
+
+           </div>
+           <div class="form-row">
+               <div class="form-group col-md-12" style="padding-top:16px">
+                   <label style="font-weight:bold">Job Location : </label>
+                   <input type="text" class="form-control" name="location" placeholder="Enter the job location" required>
+               </div>
+
+
+           </div>
+           <div class="form-row">
+               <div class="form-group col-md-12" style="padding-top:16px">
+                   <label style="font-weight:bold">Skills</label>
+                   <input type="text" required class="form-control"  name="skills" placeholder="Skills required">
+               </div>
+
+
+           </div>
+           <div class="form-row">
+               <div class="form-group col-md-12" style="padding-top:16px">
+                   <label style="font-weight:bold">Job Description : </label>
+                   <textarea class="form-control" name="description" required></textarea>
+               </div>
+
+
+           </div>
+
+            <br>
+           <input type="submit" value="submit" class="btn btn-primary" style="background-color:#172774;color:white;width:150px;height:50px;border-radius:20px"><br>
+       </form>
+{% include 'footer.html' %}
+
+
+{% ifequal error "no" %}
+<script>
+    alert("Job details successfully added ");
+    window.location=('{% url 'Job_List' %}')
+</script>
+{% endifequal %}
+
+{% ifequal error "yes" %}
+<script>
+    alert("Something is wrong.Try  again.... ");
+</script>
+{% endifequal %}
+
+
+{% endblock %}
