@@ -15,4 +15,5 @@ sqlparse==0.4.2
 urllib3==1.26.7
 waitress==1.4.4
 Way2sms==1.0.2
+whitenoise==5.3.0
 zerosms==0.0.1
