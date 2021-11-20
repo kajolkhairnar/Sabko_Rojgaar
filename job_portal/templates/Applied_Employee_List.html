@@ -19,6 +19,10 @@
            <th>Email ID</th>
            <th>Contact Number</th>
            <th>Job Title</th>
+           
+           <th>Qualification</th>
+           <th>Previous Job</th>
+           <th>Salary Expected/Job Rate </th>
            <th>Workplace Name</th>
            <th>Apply Date</th>
            <th>Resume/Document</th>
@@ -49,9 +53,17 @@
             {{i.job.Title }}
         </td>
         <td>
+            {{i.employee.edu}}
+        </td>
+        <td>
+            {{i.employee.jobd}}
+        </td>
+        <td>
+            {{i.employee.sal}}
+        </td>
+        <td>
             {{i.job.workplace_location}}
         </td>
-        
         <td>
             {{i.applied_date }}
         </td>
