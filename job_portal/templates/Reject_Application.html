@@ -1,6 +1,6 @@
 {% load static %}
 {% block body %}
-{% include 'Employeer_navigation.html' %}
+{% include 'Employeer_Navigation.html' %}
 
     <marquee style="background-color:red;font-family:Cursive;color:darkcolor;font-weight:bold">
         Send Message
@@ -11,7 +11,7 @@
     <form method="post">
       {% csrf_token %}
       <label>Send To : </label>
-      <input type="username" value="{{employee.user.first_name}}  {{employee.user.last_name}}">
+      <input type="username" value="{{emp.employee.user.first_name}}  {{emp.employee.user.last_name}}">
       <label>Message : </label>
       <textarea rows="20" col="80" type="text" name="message" >Hey Applicant!!Thank you sending your application.As your profile doesnt suits our job , your application has been rejected .Please take note of it. Try for next job . See you soon .</textarea>
     </form>
