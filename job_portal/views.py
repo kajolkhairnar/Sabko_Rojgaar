@@ -80,9 +80,12 @@ def employee_sign_up(request):
                             fm=request.POST['gender']
                             p=request.POST['pwd']
                             i=request.FILES['photo']
+                            edu=request.POST['edu']
+                            sal=request.POST['sal']
+                            jobd=request.POST['jobd']
                             try:
                                  user=User.objects.create_user(first_name=f,last_name=l,username=e,password=p)
-                                 Jobseekeruser.objects.create(user=user,mobile=con,image=i,gender=fm,type="Employee")
+                                 Jobseekeruser.objects.create(user=user,mobile=con,image=i,gender=fm,type="Employee",edu=edu,sal=sal,jobd=jobd)
                                  error='no'
                             except:
                                  error='yes'
@@ -101,12 +104,18 @@ def Employee_Profile(request):
         l = request.POST['lname']
         con = request.POST['contact']
         fm = request.POST['gender']
+        edu=request.POST['edu']
+        jobd=request.POST['jobd']
+        sal=request.POST['sal']
 
 
         employee.user.first_name = f
         employee.user.last_name = l
         employee.mobile = con
         employee.gender = fm
+        employee.edu=edu
+        employee.jobd=jobd
+        employee.sal=sal
 
 
         try:
