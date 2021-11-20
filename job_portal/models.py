@@ -10,6 +10,9 @@ class Jobseekeruser(models.Model):
                 image=models.FileField(null=False)
                 gender=models.CharField(max_length=10,null=True)
                 type=models.CharField(max_length=15)
+                edu=models.CharField(max_length=100,null=True)
+                jobd=models.CharField(max_length=100,null=True)
+                sal=models.CharField(max_length=100,null=True)
                 def _str_(self):
                    return self.user.username
 
