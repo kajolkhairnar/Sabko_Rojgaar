@@ -42,19 +42,26 @@
   </div>
   </div>
 </div>
-<nav class="navbar navbar-expand-sm" style="background-color:black">
-    <a class="navbar-brand text-white pl-5 pb-5 pt-5 font-weight-bold" style="font-family:Monotype Corsiva;font-size:40px">Welcome {{request.user.first_name}} {{request.user.last_name}}</a>
+<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  
+<nav class="collapse navbar-collapse" id="collapsibleNavbar">
     <ul class="navbar-nav">
+    <a class="navbar-brand text-white pl-5 pb-5 pt-5 font-weight-bold" style="font-family:Monotype Corsiva;font-size:40px">Welcome {{request.user.first_name}} {{request.user.last_name}}</a>
+ 
         <li class="nav-item ">
             <a class="navbar-1" href="{% url 'Employee_Profile' %}" style="padding-left:150px;font-family:sans serif;font-weight:bold"><i class="fa fa-home"></i>Home</a>
-        <a class="navbar-1" href="{% url 'Add_Job'  %}" style="padding-left:70px;font-family:sans serif;font-weight:bold"><i class="fa fa-users mr-1"></i> Add Jobs</a>
-        <a class="navbar-1" href="{% url 'Job_List' %}" style="padding-left:70px;font-family:sans serif;font-weight:bold"><i class="fa fa-user-circle mr-1"></i>Job List</a>
-            <a class="navbar-1" href="{% url 'Applied_Employee_List' %}" style="padding-left:70px;font-family:sans serif;font-weight:bold"><i class="fa fa-user-circle mr-1"></i>Employee Applications</a>
-                    <a class="navbar-1" href="{% url 'change_password_Rect' %}" style="padding-left:70px;font-family:sans serif;font-weight:bold"><i class="fa fa-user-circle mr-1"></i>Change Password</a>
-
-        <a class="navbar-1" href="{% url 'Logout' %}" style="padding-left:70px;font-family:sans serif;font-weight:bold"><i class="fa fa-sign-out mr-1"></i>Logout</a>
-
         </li>
+       <li class="nav-item "> <a class="nav-link" href="{% url 'Add_Job'  %}" style="padding-left:70px;font-family:sans serif;font-weight:bold"><i class="fa fa-users mr-1"></i> Add Jobs</a></li>
+       <li class="nav-item "> <a class="nav-link" href="{% url 'Job_List' %}" style="padding-left:70px;font-family:sans serif;font-weight:bold"><i class="fa fa-user-circle mr-1"></i>Job List</a></li>
+            <li class="nav-item "><a class="nav-link" href="{% url 'Applied_Employee_List' %}" style="padding-left:70px;font-family:sans serif;font-weight:bold"><i class="fa fa-user-circle mr-1"></i>Employee Applications</a></li>
+                   <li class="nav-item "> <a class="nav-link" href="{% url 'change_password_Rect' %}" style="padding-left:70px;font-family:sans serif;font-weight:bold"><i class="fa fa-user-circle mr-1"></i>Change Password</a></li>
+
+      <li class="nav-item ">  <a class="nav-link" href="{% url 'Logout' %}" style="padding-left:70px;font-family:sans serif;font-weight:bold"><i class="fa fa-sign-out mr-1"></i>Logout</a></li>
+
+        
 
     </ul>
 
