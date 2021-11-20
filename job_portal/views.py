@@ -4,7 +4,6 @@ from django.contrib.auth.models import User
 from django.contrib.auth import authenticate,login,logout
 from datetime import date
 from django.http import HttpResponse
-import twilio
 import zerosms
 from django.core.mail import send_mail as sm
 # Create your views here.
