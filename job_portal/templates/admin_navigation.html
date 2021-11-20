@@ -64,6 +64,12 @@
   </div>
   </div>
 </div>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+
+  <div class="collapse navbar-collapse" id="collapsibleNavbar">
 <nav class="navbar navbar-expand-sm" style="background-color:black">
     <a class="navbar-brand text-white pl-5 pb-5 pt-5 font-weight-bold" style="font-family:Monotype Corsiva">Sabko Rojgaar</a>
     <ul class="navbar-nav">
@@ -81,10 +87,10 @@
         </div>
         </li>
         <li class="nav-item">
-            <a class="navbar-1 " href="{% url 'view_Employee' %}" style="padding-left:70px;font-family:sans serif;font-weight:bold"><i class="fa fa-user-o mr-1"></i> View Employees</a>
-
-            <a class="navbar-1" href="{% url 'change_password' %}" style="padding-left:70px;font-family:sans serif;font-weight:bold"><i class="fa fa-user-circle mr-1"></i>Change Password</a>
-        <a class="navbar-1" href="{% url 'index' %}"  style="padding-left:90px;font-family:sans serif;font-weight:bold" ><i class="fa fa-sign-out mr-1" ></i>Logout</a>
+            <a class="nav-link " href="{% url 'view_Employee' %}" style="padding-left:70px;font-family:sans serif;font-weight:bold"><i class="fa fa-user-o mr-1"></i> View Employees</a>
+        </li>
+           <li class="nav-item"> <a class="nav-link" href="{% url 'change_password' %}" style="padding-left:70px;font-family:sans serif;font-weight:bold"><i class="fa fa-user-circle mr-1"></i>Change Password</a></li>
+        <li class="nav-item"><a class="nav-link" href="{% url 'index' %}"  style="padding-left:90px;font-family:sans serif;font-weight:bold" ><i class="fa fa-sign-out mr-1" ></i>Logout</a>
 
         </li>
 
