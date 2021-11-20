@@ -43,15 +43,15 @@
   </div>
 </div>
 <nav class="navbar navbar-expand-md bg-dark navbar-dark">
+
+    <a class="navbar-brand text-white pl-5 pb-5 pt-5 font-weight-bold" style="font-family:Monotype Corsiva;font-size:40px">Welcome {{request.user.first_name}} {{request.user.last_name}}</a>
 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
     <span class="navbar-toggler-icon"></span>
   </button>
 
   
 <div class="collapse navbar-collapse" id="collapsibleNavbar">
-    <ul class="navbar-nav">
-    <a class="navbar-brand text-white pl-5 pb-5 pt-5 font-weight-bold" style="font-family:Monotype Corsiva;font-size:40px">Welcome {{request.user.first_name}} {{request.user.last_name}}</a>
- 
+    <ul class="navbar-nav"> 
         <li class="nav-item ">
             <a class="navbar-1" href="{% url 'Employee_Profile' %}" style="padding-left:150px;font-family:sans serif;font-weight:bold"><i class="fa fa-home"></i>Home</a>
         </li>
