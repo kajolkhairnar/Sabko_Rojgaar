@@ -20,13 +20,13 @@
        <form class="container mt-5" onsubmit="return checkpwd();" method="post" name="signup" enctype="multipart/form-data" style="background-color:#CDF2CA;border-radius:20px">
            {% csrf_token %}
            <div class="form-row">
-               <div class="form-group col-md-6" style="padding-top:16px">
+               <div class="form-group col-md-6" >
                    <label style="font-weight:bold">First Name :</label>
                    <input type="text" required class="form-control" name="fname" placeholder="First Name">
                </div>
-               <div class="form-group col-md-6" style="padding-top:0px">
+               <div class="form-group col-md-6" style="padding-top:16px">
                    <label style="font-weight:bold">Last Name :</label>
-                   <input type="text" required class="form-control" style="padding-top:24px" name="lname" placeholder="Last Name">
+                   <input type="text" required class="form-control" name="lname" placeholder="Last Name">
                </div>
 
            </div>
@@ -49,13 +49,13 @@
 
            </div>
            <div class="form-row">
-               <div class="form-group col-md-6" style="padding-top:22px">
+               <div class="form-group col-md-6" >
                    <label style="font-weight:bold">Password :</label>
                    <input type="password" required class="form-control" name="pwd" placeholder="john@123">
                </div>
-               <div class="form-group col-md-6" >
+               <div class="form-group col-md-6" style="padding-top:22px" >
                    <label style="font-weight:bold">Confirm Password :</label>
-                   <input type="password" required class="form-control" style="padding-top:24px" name="cpwd" placeholder="john@123">
+                   <input type="password" required class="form-control"  name="cpwd" placeholder="john@123">
                </div>
 
 
@@ -83,7 +83,7 @@
 
            </div>
          <div class="form-row">
-               <div class="form-group col-md-12" style="padding-top:14px">
+               <div class="form-group col-md-12" style="padding-top:16px">
                    <label style="font-weight:bold">Education Details :</label><br>
                    <input !required  type="text" class="form-control" name="edu"  style="border-radius:20px;background-color:#F78812;width:300px;height:50px">
                </div>
@@ -91,7 +91,7 @@
 
            </div>
             <div class="form-row">
-               <div class="form-group col-md-12" style="padding-top:14px">
+               <div class="form-group col-md-12" style="padding-top:16px">
                    <label style="font-weight:bold">Previous Job Details :</label><br>
                    <input !required type="text" class="form-control" name="jobd" style="border-radius:20px;background-color:#F78812;width:300px;height:50px">
                </div>
@@ -99,7 +99,7 @@
 
            </div>
             <div class="form-row">
-               <div class="form-group col-md-12" style="padding-top:14px">
+               <div class="form-group col-md-12" style="padding-top:16px">
                    <label style="font-weight:bold">Salary Expectation :</label><br>
                    <input type="text" class="form-control" name="sal" style="border-radius:20px;background-color:#F78812;width:300px;height:50px">
                </div>
@@ -107,7 +107,7 @@
 
            </div>
            <div class="form-row">
-               <div class="form-group col-md-12" style="padding-top:14px">
+               <div class="form-group col-md-12" style="padding-top:16px">
                    <label style="font-weight:bold">Upload Profile Photo (Optional) :</label><br>
                    <input type="file" class="form-control" name="photo" style="border-radius:20px;background-color:#F78812;width:300px;height:50px">
                </div>
