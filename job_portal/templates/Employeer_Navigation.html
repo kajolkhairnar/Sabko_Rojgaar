@@ -1,76 +1,112 @@
-<html>
+<html lang="en">
 <head>
     {% load static %}
     <title>
         Sabko Rojgaar App
     </title>
-    <meta charset="utf-8">
+   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdn.metroui.org.ua/v4/css/metro-all.min.css">
-<script src="https://cdn.metroui.org.ua/v4/js/metro.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+ 
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
  <link rel="stylesheet" href="{% static 'styles.css' %}">
-<style>
-    .navbar-1:hover
-    {
-       color : white;
-     }
+
+   <script type="text/javascript">
+  function googleTranslateElementInit() {
+  new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
+  }
+</script>
+
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    
+    
+ <script>
+   $(document).ready(function() {
+    $('#example').DataTable( {
+        dom: 'Bfrtip',
+        buttons: [
+            'copyHtml5',
+            'excelHtml5',
+            'csvHtml5',
+            'pdfHtml5'
+        ]
+    } );
+} );
+</script>
+   <script src="//code.jquery.com/jquery-3.5.1.js"></script>
+   <script src="//cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+   <script src="//cdn.datatables.net/buttons/2.0.1/js/dataTables.buttons.min.js"></script>
+   <script src="//cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+   <script src="//cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+   <script src="//cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+   <script src="//cdn.datatables.net/buttons/2.0.1/js/buttons.html5.min.js"></script>
+   <link rel="stylesheet" href="//cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css">
+   <link rel="stylesheet" href="//cdn.datatables.net/buttons/2.0.1/css/buttons.dataTables.min.css">
 
 
-
-
-</style>
-
-</head>
-
-<body>
+    </head>
+    
+ <body>
 <div class="container">
   <div class="top">
 
   <div class="row" >
 
-  <div class="col-sm-4 ml-0" > <img src="{% static 'images/image1.jpg' %}" width="150px" height="150px"></div>
-  <div class="col-sm-4 mt-5 pb-5 pr-50 "  ><span style="font-weight : bold ; font-size : 30px;padding-right-100px;padding-bottom:80px"><br><span style="color:red;padding-bottom:30px " >SABKO ROJGAAR</span></span></div>
-      <div class="col-sm-4 pt-5">
-          <span style="font-weight:bold; font-size : 30px;padding-top:50px;padding-left:350px"><br><i class="fa fa-instagram padding-left:30%"></i> <i class="fa fa-twitter"> </i> <i class="fa fa-facebook"> </i> <i class="fa fa-LinkedIn"></i><i class="fa fa-telegram "> </i></span>
-  </div>
-  </div>
-  </div>
-</div>
-<nav class="navbar navbar-expand-md bg-dark navbar-dark">
+  <div class="col-sm-3 ml-0" style="padding-top:50px" > <img src="{% static 'images/job_search.jpg' %}" width="150px" height="150px" style="border-radius:150px"></div>
+  <div class="col-sm-3 " style="font-weight : bold ; font-size:30px;padding-right-100px;padding-bottom:80px"><br><span style="color:red;font-family:cursive;" ><span>SABKO ROJGAAR</span></div>
+      <div class="col-sm-3 pt-5">
+          <span style="font-weight:bold; font-size : 30px;padding-top:50px;padding-left:100px"><br><i class="fa fa-instagram padding-left:30%"></i> <i class="fa fa-twitter"> </i> <i class="fa fa-facebook"> </i> <i class="fa fa-LinkedIn"> </i> <i class="fa fa-telegram "> </i></span>
+                  
 
-    <a class="navbar-brand text-white pl-5 pb-5 pt-5 font-weight-bold" style="font-family:Monotype Corsiva;font-size:40px">Welcome {{request.user.first_name}} {{request.user.last_name}}</a>
-<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+      </div>
+      <div id="google_translate_element" class="col-sm-3" style="padding-top:100px"></div>
+  </div>
+  </div>
+     </div>
+<nav class="navbar navbar-expand-md bg-dark navbar-dark">
+ <a class="navbar-brand" href="#" style="padding-right:100x">Sabko Rojgaar</a> 
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
     <span class="navbar-toggler-icon"></span>
   </button>
-
-  
-<div class="collapse navbar-collapse" id="collapsibleNavbar">
-    <ul class="navbar-nav"> 
-        <li class="nav-item ">
-            <a class="navbar-1" href="{% url 'Employee_Profile' %}" style="padding-left:150px;font-family:sans serif;font-weight:bold"><i class="fa fa-home"></i>Home</a>
-        </li>
-       <li class="nav-item "> <a class="nav-link" href="{% url 'Add_Job'  %}" style="padding-left:70px;font-family:sans serif;font-weight:bold"><i class="fa fa-users mr-1"></i> Add Jobs</a></li>
-       <li class="nav-item "> <a class="nav-link" href="{% url 'Job_List' %}" style="padding-left:70px;font-family:sans serif;font-weight:bold"><i class="fa fa-user-circle mr-1"></i>Job List</a></li>
-            <li class="nav-item "><a class="nav-link" href="{% url 'Applied_Employee_List' %}" style="padding-left:70px;font-family:sans serif;font-weight:bold"><i class="fa fa-user-circle mr-1"></i>Employee Applications</a></li>
-                   <li class="nav-item "> <a class="nav-link" href="{% url 'change_password_Rect' %}" style="padding-left:70px;font-family:sans serif;font-weight:bold"><i class="fa fa-user-circle mr-1"></i>Change Password</a></li>
-
-      <li class="nav-item ">  <a class="nav-link" href="{% url 'Logout' %}" style="padding-left:70px;font-family:sans serif;font-weight:bold"><i class="fa fa-sign-out mr-1"></i>Logout</a></li>
-
+  <div class="collapse navbar-collapse" id="collapsibleNavbar">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+          <a class="nav-link text-white" href="{% url 'index' %}">Home</a>
+      </li>
         
-
+      
+      
+      <li class="nav-item">
+          <a class="nav-link text-white" href="{% url 'Add_Job' %}">Add Job</a>
+      </li>    
+       <li class="nav-item">
+           <a class="nav-link text-white" href="{% url 'Job_List' %}">Job List</a>
+      </li>  
+      
+       <li class="nav-item">
+               <a class="nav-link text-white" href="{% url 'Applied_Employee_List' %}">Candidate Application List</a>
+      </li>  
+      <li class="nav-item">
+               <a class="nav-link text-white" href="{% url 'change_password_Rect' %}">Change Password</a>
+      </li> 
+      <li class="nav-item">
+               <a class="nav-link text-white" href="{% url 'index' %}">Logout</a>
+      </li> 
     </ul>
-    </div>
-
-
+  </div>  
 </nav>
-
-
-
+<br>
 </body>
+    
 </html>
+
+
+
+
+
+
+
+
