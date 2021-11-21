@@ -1,6 +1,6 @@
 {% load static %}
 {% block body %}
-{% include 'Employee_navigation.html' %}
+{% include 'Employee_Navigation.html' %}
 
     <marquee style="background-color:red;font-family:Cursive;color:darkcolor;font-weight:bold">
         Job Details
@@ -15,7 +15,7 @@
         </div>
         <div class="col-md-6">
             <h2>{{job.Title}}</h2>
-            <p>{{job.employeer.workplace}} <em><a href="{% url 'employee_job_list' %}">View All Jobs</a></em></p>
+            <p>{{job.Employeer.workplace}} <em><a href="{% url 'employee_job_list' %}">View All Jobs</a></em></p>
             <a href="#"><i class="fa fa-map-marker mr-3"></i>{{job.location}}</a>
             <a href="#"><i class="fa fa-calendar mr-3"></i>{{job.date_of_creation}}</a>
             <br>
