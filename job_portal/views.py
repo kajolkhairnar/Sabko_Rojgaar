@@ -493,12 +493,11 @@ def employee_job_list(request):
     d = {'job': job,'li':li}
     return render(request, 'employee_job_list.html',d)
 
+
 def Job_Detail(request,pid):
-    job = Job.objects.get(id=pid)
-
-
-    d = {'job': job}
-    return render(request, 'Job_Detail.html',d)
+    job=Job.objects.get(id=pid)
+    d={'job': job}
+    return render(request,'Job_Detail.html',d)
 
 def Apply_for_job(request,pid):
     if not request.user.is_authenticated:
