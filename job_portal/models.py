@@ -7,7 +7,7 @@ from django.contrib.auth.models import User
 class Jobseekeruser(models.Model):
                 user=models.ForeignKey(User,on_delete=models.CASCADE)
                 mobile=models.IntegerField()
-                image=models.FileField(null=False)
+                image=models.FileField(null=True)
                 gender=models.CharField(max_length=10,null=True)
                 type=models.CharField(max_length=15)
                 edu=models.CharField(max_length=100,null=True)
@@ -20,7 +20,7 @@ class Jobseekeruser(models.Model):
 class EmploymentProvideruser(models.Model):
                 user = models.ForeignKey(User, on_delete=models.CASCADE)
                 mobile = models.IntegerField()
-                image = models.FileField(null=False)
+                image = models.FileField(null=True)
                 gender = models.CharField(max_length=10, null=True)
                 workplace =models.CharField(max_length=100,null=True)
                 workarea = models.CharField(max_length=100,null=True)
